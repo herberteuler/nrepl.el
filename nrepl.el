@@ -745,16 +745,15 @@ POS is the index of current argument."
                              (clojure.core/resolve
                               (clojure.core/read-string \"%s\"))))
                            (catch Throwable t nil))" thing))
-	   (result (when thing
-		     (nrepl-send-string-sync form
-					     nrepl-buffer-ns
-					     (nrepl-current-tooling-session))))
-	   (done (plist-get result :done))
-	   (value (plist-get result :value)))
-      (when (and done (not (string= value "nil")))
-	(message "%s: %s"
-		 (nrepl-eldoc-format-thing thing)
-		 (nrepl-eldoc-format-arglist value pos))))))
+           (result (when thing
+                     (nrepl-send-string-sync form
+                                             nrepl-buffer-ns
+                                             (nrepl-current-tooling-session))))
+           (value (plist-get result :value)))
+      (unless (string= value "nil")
+        (format "%s: %s"
+                (nrepl-eldoc-format-thing thing)
+                (nrepl-eldoc-format-arglist value pos))))))
 
 (defun nrepl-turn-on-eldoc-mode ()
   "Turn on eldoc mode in the current buffer."

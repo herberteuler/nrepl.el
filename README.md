@@ -350,15 +350,22 @@ To switch to the relevant nREPL buffer based on the clojure namespace in the cur
 
 You can display the current nREPL connection using <kbd>C-c M-d</kbd> and rotate through available connections using <kbd>C-c M-r</kbd>.
 
-## Requirements:
+## Requirements
 
-* [Leiningen](http://leiningen.org) 2.x
+* [Leiningen](http://leiningen.org) 2.x (only for `nrepl-jack-in`)
 * [clojure-mode](https://github.com/technomancy/clojure-mode)
 * [GNU Emacs](http://www.gnu.org/software/emacs/emacs.html) 23.2+ or 24.
 
 ## Changelog
 
 An extensive changelog is available [here](CHANGELOG.md).
+
+## Extensions
+
+There are a couple of nrepl.el extensions that add some extra functionality to it:
+
+* [nrepl-tracing](https://github.com/clojure-emacs/nrepl-tracing) adds basic tracing support
+* [nrepl-decompile](https://github.com/clojure-emacs/nrepl-decompile) adds some Java bytecode decompilation commands
 
 ## Team
 
